@@ -1,4 +1,4 @@
-To start te app move into the the bluetech-assessment directory run npm install to download the dependencies,
+Firstly,  run npm install to download the dependencies,
 and then npm start to run the app.
 
 
