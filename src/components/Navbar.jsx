@@ -37,9 +37,10 @@ const Navbar = () => {
             className="flex items-center"
             onSubmit={handleSubmit}
           >
+            <div className="border-2">
             <select
               name="filter"
-              className="border-2 focus:outline-none text-sm font-primary p-3"
+              className=" focus:outline-none text-sm font-primary p-3"
               placeholder="Filter"
               onChange={(e) => setFilter(e.target.value)}
               value={filter}
@@ -54,18 +55,18 @@ const Navbar = () => {
             <Button
               type="submit"
               sx={{
-                backgroundColor: "blue",
-                color: "white",
-                padding: "4px",
-                height: "45px",
-                width: "45px",
+                color: "black",
+                
+                
                 "&:hover": {
-                  backgroundColor: "darkblue",
+                  color: "gray",
                 },
               }}
             >
               <SearchIcon fontSize="small" />
             </Button>
+            </div>
+           
           </form>
         </div>
 
