@@ -1,10 +1,15 @@
 import React, { useContext } from "react";
 import { ProductContext } from "../ProductProvider";
 import Loader from "../utility/Loader";
+import NotFound from "../utility/NotFound";
 
 const Table = () => {
   const { products, loading } = useContext(ProductContext);
-
+   if(products.length === 0){
+    return <div>
+        <NotFound/>
+    </div>
+   }
   return (
     <>
       {loading ? (

@@ -12,7 +12,6 @@ const Navbar = () => {
     const [filter, setFilter] = useState("");
     const { searchProducts, searchFilteredProducts } = useContext(ProductContext);
     const [menuOpen, setMenuOpen] = useState(false);
-    console.log(search, filter)
     useEffect(() => {
       function init() {
         searchProducts(search);
@@ -33,7 +32,7 @@ const Navbar = () => {
     <nav className="w-full p-5 bg-white shadow-md">
       <div className="flex justify-between items-center">
         <div className="flex items-center space-x-4">
-          <img src={logo} alt="" className="w-[200px]" />
+          <img src={logo} alt="" className="lg:w-[200px] w-[90px]" />
           <input
             type="text"
             id="price"

@@ -11,7 +11,7 @@ const ProductProvider = ({children}) => {
         setLoading(true);
         const response = await fetchProducts(search);
         setProducts(response);
-        console.log(response)
+        
      }catch(err){
         console.log(err)
      }finally{
@@ -27,9 +27,9 @@ const ProductProvider = ({children}) => {
  
         }
         const response = await filterProducts(search, supplier);
-        console.log(response)
+       
         setProducts(response);
-        console.log(response)
+        
      }catch(err){
         console.log(err)
      }finally{
