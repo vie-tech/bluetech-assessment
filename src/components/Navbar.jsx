@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { ProductContext } from "../ProductProvider";
 import logo from "../assets/logo.png";
 import bell from "../assets/notification.png";
 import photo from "../assets/profile.png";
@@ -7,14 +8,26 @@ import SearchIcon from "@mui/icons-material/Search";
 import Button from "@mui/material/Button";
 
 const Navbar = () => {
-  const [search, setSearch] = useState("");
-  const [filter, setFilter] = useState("");
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle search and filter submission logic
-  };
+    const [search, setSearch] = useState("");
+    const [filter, setFilter] = useState("");
+    const { searchProducts, searchFilteredProducts } = useContext(ProductContext);
+    const [menuOpen, setMenuOpen] = useState(false);
+    console.log(search, filter)
+    useEffect(() => {
+      function init() {
+        searchProducts(search);
+      }
+  
+      init();
+    }, [search]);
+  
+    async function handleSubmit(event) {
+      event.preventDefault();
+      if (filter !== null && search !== null) {
+        searchFilteredProducts(search, filter);
+      }
+    }
+  
 
   return (
     <nav className="w-full p-5 bg-white shadow-md">
@@ -37,10 +50,9 @@ const Navbar = () => {
             className="flex items-center"
             onSubmit={handleSubmit}
           >
-            <div className="border-2">
             <select
               name="filter"
-              className=" focus:outline-none text-sm font-primary p-3"
+              className="border-2 focus:outline-none text-sm font-primary p-3"
               placeholder="Filter"
               onChange={(e) => setFilter(e.target.value)}
               value={filter}
@@ -55,18 +67,18 @@ const Navbar = () => {
             <Button
               type="submit"
               sx={{
-                color: "black",
-                
-                
+                backgroundColor: "blue",
+                color: "white",
+                padding: "4px",
+                height: "45px",
+                width: "45px",
                 "&:hover": {
-                  color: "gray",
+                  backgroundColor: "darkblue",
                 },
               }}
             >
               <SearchIcon fontSize="small" />
             </Button>
-            </div>
-           
           </form>
         </div>
 
