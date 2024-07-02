@@ -18,7 +18,7 @@ const Table = () => {
         </div>
       ) : (
         <div className="overflow-x-auto">
-          <table className="table-auto bg-white w-full p-5 mx-auto mt-14 rounded-lg">
+          <table className="table-auto bg-white w-[95%] p-5 mx-auto mt-14 rounded-lg">
             <caption className="text-2xl font-bold">Product List</caption>
             <thead className="mb-4 p-2 bg-blue-100">
               <tr>
